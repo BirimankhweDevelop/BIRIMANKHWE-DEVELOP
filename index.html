@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyimbo Za Akhristu - Download</title>
+    <style>
+        :root {
+            --primary-color: #5695dd;
+            --secondary-color: #4bc1d1;
+            --text-color: #181818;
+            --bg-color: #ffffff;
+            --card-bg: #f8f9fa;
+            --shadow: 0 4px 20px rgba(93, 92, 222, 0.1);
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #7878ff;
+            --text-color: #f1f1f1;
+            --bg-color: #181818;
+            --card-bg: #2a2a2a;
+            --shadow: 0 4px 20px rgba(120, 120, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .theme-toggle {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            padding: 0.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: background-color 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.05)" points="0,1000 1000,0 1000,1000"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .app-preview {
+            max-width: 300px;
+            margin: 2rem auto;
+            background: white;
+            border-radius: 20px;
+            padding: 1rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            transform: perspective(1000px) rotateY(-5deg);
+        }
+
+        .app-preview img {
+            width: 100%;
+            border-radius: 15px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 0;
+            background-color: var(--card-bg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: #666;
+        }
+
+        [data-theme="dark"] .section-subtitle {
+            color: #aaa;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: var(--bg-color);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(93, 92, 222, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        /* Download Section */
+        .download {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .download-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: var(--shadow);
+        }
+
+        .download-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(93, 92, 222, 0.3);
+        }
+
+        .download-btn.web {
+            background: linear-gradient(135deg, #28a745, #20c997);
+        }
+
+        .download-btn.web:hover {
+            background: linear-gradient(135deg, #218838, #1ea896);
+        }
+
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 3rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--card-bg);
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.7;
+        }
+
+        .copyright {
+            padding-top: 2rem;
+            border-top: 1px solid #ddd;
+            color: #666;
+        }
+
+        [data-theme="dark"] .copyright {
+            border-top-color: #333;
+            color: #aaa;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .download-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Phone mockup */
+        .phone-mockup {
+            position: relative;
+            width: 250px;
+            height: 500px;
+            margin: 2rem auto;
+            background: #333;
+            border-radius: 25px;
+            padding: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .phone-content {
+            padding: 20px;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                📖 Nyimbo Za Akhristu
+            </div>
+            <ul class="nav-links">
+                <li><a href="#features">Características</a></li>
+                <li><a href="#download">Download</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="../desenvolvedor/desenvolvedor.html">Desenvolvedor</a></li>
+                <li>
+                    <button class="theme-toggle" id="themeToggle">🌙</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content fade-in-up">
+            <h1>Nyimbo Za Akhristu</h1>
+            <p>O seu hinário cristão digital completo com mais de 250 hinos em Chichewa, Português e Inglês</p>
+            
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <div class="phone-content">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">📖</div>
+                        <h3>Nyimbo Za Akhristu</h3>
+                        <p style="font-size: 0.9rem; margin-top: 1rem;">Hinos • Pesquisa • Offline</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title fade-in-up">Características</h2>
+            <p class="section-subtitle fade-in-up">Tudo o que você precisa para louvar e adorar</p>
+            
+            <div class="features-grid">
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">📚</div>
+                    <h3 class="feature-title">Mais de 250 Hinos</h3>
+                    <p>Coleção completa de hinos cristãos clássicos e contemporâneos em múltiplos idiomas.</p>
+                </div>
+                
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">🔍</div>
+                    <h3 class="feature-title">Pesquisa Avançada</h3>
+                    <p>Encontre rapidamente qualquer hino por título, número ou palavras-chave.</p>
+                </div>
+                
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">🌙</div>
+                    <h3 class="feature-title">Modo Escuro</h3>
+                    <p>Interface adaptável com modo claro e escuro para leitura confortável.</p>
+                </div>
+                
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">📱</div>
+                    <h3 class="feature-title">Responsivo</h3>
+                    <p>Funciona perfeitamente em celulares, tablets e computadores.</p>
+                </div>
+                
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">🎨</div>
+                    <h3 class="feature-title">Personalização</h3>
+                    <p>Ajuste o tamanho da fonte, cores e estilo para sua preferência.</p>
+                </div>
+                
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">🌍</div>
+                    <h3 class="feature-title">Multilíngue</h3>
+                    <p>Suporte para Português, Inglês e Chichewa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item fade-in-up">
+                    <div class="stat-number">254</div>
+                    <div class="stat-label">Hinos Disponíveis</div>
+                </div>
+                <div class="stat-item fade-in-up">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Idiomas</div>
+                </div>
+                <div class="stat-item fade-in-up">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Gratuito</div>
+                </div>
+                <div class="stat-item fade-in-up">
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">Anúncios</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download" id="download">
+        <div class="container">
+            <h2 class="section-title fade-in-up">Baixe Agora</h2>
+            <p class="section-subtitle fade-in-up">Disponível para todos os dispositivos</p>
+            
+            <div class="download-buttons">
+                <a href="#" class="download-btn web fade-in-up">
+                    🌐 Acessar Versão Web
+                </a>
+                <a href="../APK/nyimboZaAkhristu.apk" class="download-btn fade-in-up" download>
+                    📱 Download APK
+                </a>
+                <a href="#" class="download-btn fade-in-up" download>
+                    💻 Download Windows
+                </a>
+            </div>
+            
+            <p style="margin-top: 2rem; color: #666;">
+                <small>Requisitos: Android 5.0+ | Windows 10+ | Navegador moderno para versão web</small>
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#features">Características</a>
+                <a href="#download">Download</a>
+                <a href="../desenvolvedor/desenvolvedor.html">Desenvolvedor</a>
+                <a href="mailto:support@nyimbo.com">Suporte</a>
+                <a href="./privacy.html">Privacidade</a>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 Nyimbo Za Akhristu. Todos os direitos reservados.</p>
+                <p>Desenvolvido com ❤️ para a comunidade cristã</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        body.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in-up elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeElements = document.querySelectorAll('.fade-in-up');
+            fadeElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+
+        // Counter animation for stats
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = target.toString().includes('%') ? 
+                    Math.round(current) + '%' : Math.round(current);
+            }, 20);
+        }
+
+        // Animate stats when they come into view
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const number = entry.target.querySelector('.stat-number');
+                    const target = parseInt(number.textContent);
+                    animateCounter(number, target);
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const statItems = document.querySelectorAll('.stat-item');
+            statItems.forEach(item => statsObserver.observe(item));
+        });
+    </script>
+</body>
+</html>
