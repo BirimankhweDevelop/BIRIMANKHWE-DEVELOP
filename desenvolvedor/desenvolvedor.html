@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre o Desenvolvedor - Nyimbo Za Akhristu</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin-bottom: 1rem;
+        }
+        
+        .back-btn:hover {
+            background-color: var(--accent-color);
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .developer-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem auto;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .developer-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--secondary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .developer-name {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        
+        .developer-title {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .developer-info {
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .contact-info {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+        
+        .contact-icon {
+            margin-right: 10px;
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            width: 25px;
+            text-align: center;
+        }
+        
+        .email-link {
+            color: var(--secondary-color);
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .email-link:hover {
+            text-decoration: underline;
+            color: var(--accent-color);
+        }
+        
+        .email-form-container {
+            display: none;
+            width: 100%;
+            margin-top: 1rem;
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .email-form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+        
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        .send-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .send-btn:hover {
+            background-color: var(--accent-color);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-link {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-size: 1.2rem;
+            transition: background-color 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--accent-color);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 600px) {
+            .developer-photo {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Nyimbo Za Akhristu</div>
+            
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="developer-profile">
+            <!-- Espaço para sua foto - substitua o src pelo caminho da sua imagem -->
+            <img src="../img/transferir.png" alt="Marcos Jeremias Bernardo Birimankhwe" class="developer-photo">
+            
+            <h1 class="developer-name">Marcos Jeremias Bernardo Birimankhwe</h1>
+            <h2 class="developer-title">Desenvolvedor do aplicativo: "Nyimbo Za Akhristu"</h2>
+            
+            <div class="developer-info">
+                <p>Membro da Igreja do Nazareno em Moçambique</p>
+                <p>Desenvolvedor de aplicativos cristãos para a comunidade</p>
+            </div>
+            
+            <div class="contact-info">
+                <h3>Informações de Contato:</h3>
+                
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                    <div>+258 83 331 1040</div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <div>+258 85 369 0042</div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <div>
+                        <span class="email-link" id="emailLink">marcosBiriDev@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="email-form-container" id="emailFormContainer">
+                <form class="email-form" id="emailForm">
+                    <div class="form-group">
+                        <label for="subject">Assunto:</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensagem:</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="send-btn">Enviar Email</button>
+                </form>
+            </div>
+            
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Nyimbo Za Akhristu. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('emailLink').addEventListener('click', function() {
+            const formContainer = document.getElementById('emailFormContainer');
+            if (formContainer.style.display === 'block') {
+                formContainer.style.display = 'none';
+            } else {
+                formContainer.style.display = 'block';
+            }
+        });
+        
+        document.getElementById('emailForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            const email = 'marcosBiriDev@gmail.com';
+            
+            window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+            
+            // Opcional: resetar o formulário após o envio
+            this.reset();
+            document.getElementById('emailFormContainer').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
